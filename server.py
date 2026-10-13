@@ -6,10 +6,12 @@ from Components.bullet import Bullet, Bullets
 from Components.format_data import convert_initial_message, build_server_reply, unpack_server_reply, unpack_client_reply, build_client_reply
 from Components.settings import *
 
-server = "0.0.0.0" # listens to everything
+server = socket.gethostbyname("0.0.0.0") # listens to everything
 port = 5555
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+print ("Test client sending packets to IP {0}, via port {1}\n".format(server, port))
 
 try:
   s.bind((server, port))
